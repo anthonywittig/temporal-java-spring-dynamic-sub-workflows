@@ -21,6 +21,7 @@ final class ReplayTestSupport {
   static final List<String> HISTORIES =
       List.of(
           "customer.registered-v1",
+          "customer.registered-v2",
           "order.placed-success",
           "order.placed-compensated",
           "refund.requested-auto-approved",

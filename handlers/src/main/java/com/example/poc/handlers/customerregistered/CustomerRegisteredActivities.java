@@ -7,4 +7,6 @@ import io.temporal.activity.ActivityInterface;
 public interface CustomerRegisteredActivities {
 
   void sendWelcomeEmail(CustomerRegistered customer);
+
+  void syncToCrm(CustomerRegistered customer);
 }

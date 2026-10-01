@@ -2,7 +2,7 @@ package com.example.poc.handlers.customerregistered;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.inOrder;
 import static org.mockito.Mockito.withSettings;
 
 import com.example.poc.api.EventEnvelope;
@@ -13,6 +13,7 @@ import io.temporal.api.common.v1.WorkflowExecution;
 import io.temporal.common.SearchAttributes;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
+import org.mockito.InOrder;
 
 class CustomerRegisteredHandlerTest {
 
@@ -26,14 +27,16 @@ class CustomerRegisteredHandlerTest {
   }
 
   @Test
-  void sendsWelcomeEmail() {
+  void sendsWelcomeEmailThenSyncsToCrm() {
     EventEnvelope event = Fixtures.event("customer.registered");
 
     String result = temporal.run(event);
 
     assertThat(result).isEqualTo("Welcomed c-1001");
-    verify(activities)
-        .sendWelcomeEmail(new CustomerRegistered("c-1001", "ada@example.com", "Ada Lovelace"));
+    CustomerRegistered customer = new CustomerRegistered("c-1001", "ada@example.com", "Ada Lovelace");
+    InOrder order = inOrder(activities);
+    order.verify(activities).sendWelcomeEmail(customer);
+    order.verify(activities).syncToCrm(customer);
   }
 
   @Test

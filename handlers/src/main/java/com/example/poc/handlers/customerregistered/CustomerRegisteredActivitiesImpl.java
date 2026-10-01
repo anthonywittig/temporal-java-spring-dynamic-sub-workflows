@@ -16,4 +16,9 @@ public class CustomerRegisteredActivitiesImpl implements CustomerRegisteredActiv
   public void sendWelcomeEmail(CustomerRegistered customer) {
     log.info("Sending welcome email to {} <{}>", customer.name(), customer.email());
   }
+
+  @Override
+  public void syncToCrm(CustomerRegistered customer) {
+    log.info("Syncing customer {} to CRM", customer.customerId());
+  }
 }
