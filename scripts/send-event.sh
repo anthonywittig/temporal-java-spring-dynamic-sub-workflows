@@ -12,6 +12,6 @@ key="$(jq -r '.id // "no-id"' <<<"$json")"
 printf '%s|%s\n' "$key" "$json" | kafka-console-producer \
   --bootstrap-server "${KAFKA_BOOTSTRAP_SERVERS:-localhost:9092}" \
   --topic events \
-  --property parse.key=true \
-  --property 'key.separator=|'
+  --reader-property parse.key=true \
+  --reader-property 'key.separator=|'
 echo "sent $key: $json"
