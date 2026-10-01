@@ -1,0 +1,29 @@
+spring:
+  application:
+    name: process-event-consumer
+  main:
+    web-application-type: none
+  temporal:
+    connection:
+      target: ${TEMPORAL_ADDRESS:localhost:7233}
+    namespace: ${TEMPORAL_NAMESPACE:default}
+  kafka:
+    bootstrap-servers: ${KAFKA_BOOTSTRAP_SERVERS:localhost:9092}
+    consumer:
+      group-id: process-event-consumer
+      auto-offset-reset: earliest
+      enable-auto-commit: false
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+      acks: all
+    listener:
+      ack-mode: manual
+
+poc:
+  consumer:
+    topic: events
+    dead-letter-topic: events.DLT
+    # event-types: [customer.registered, order.placed]  # defaults to EventTypes.ALL

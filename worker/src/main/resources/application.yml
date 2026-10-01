@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: process-event-worker
+  main:
+    web-application-type: none
+  temporal:
+    connection:
+      target: ${TEMPORAL_ADDRESS:localhost:7233}
+    namespace: ${TEMPORAL_NAMESPACE:default}
+    workers-auto-discovery:
+      workflow-packages:
+        - com.example.poc.workflow
+      register-activity-beans: true

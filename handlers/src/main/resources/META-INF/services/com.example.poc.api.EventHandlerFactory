@@ -1,0 +1,3 @@
+com.example.poc.handlers.customerregistered.CustomerRegisteredHandlerFactory
+com.example.poc.handlers.orderplaced.OrderPlacedHandlerFactory
+com.example.poc.handlers.refundrequested.RefundRequestedHandlerFactory

@@ -1,0 +1,1 @@
+{"type":"order.placed","id":"o-2001","payload":{"orderId":"o-2001","customerId":"c-1001","items":[{"sku":"BOOK-1","quantity":2},{"sku":"PEN-7","quantity":1}],"totalCents":4599}}

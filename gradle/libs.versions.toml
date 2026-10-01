@@ -1,0 +1,15 @@
+[versions]
+spring-boot = "3.5.16"
+temporal = "1.40.0"
+
+[libraries]
+spring-boot-bom = { module = "org.springframework.boot:spring-boot-dependencies", version.ref = "spring-boot" }
+temporal-bom = { module = "io.temporal:temporal-bom", version.ref = "temporal" }
+temporal-sdk = { module = "io.temporal:temporal-sdk" }
+temporal-testing = { module = "io.temporal:temporal-testing" }
+temporal-spring-boot-starter = { module = "io.temporal:temporal-spring-boot-starter" }
+temporal-spring-boot-autoconfigure = { module = "io.temporal:temporal-spring-boot-autoconfigure" }
+jackson-databind = { module = "com.fasterxml.jackson.core:jackson-databind" }
+
+[plugins]
+spring-boot = { id = "org.springframework.boot", version.ref = "spring-boot" }
