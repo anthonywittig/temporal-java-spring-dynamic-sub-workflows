@@ -13,8 +13,10 @@ public final class EventTypes {
   public static final String CUSTOMER_REGISTERED = "customer.registered";
   public static final String ORDER_PLACED = "order.placed";
   public static final String REFUND_REQUESTED = "refund.requested";
+  public static final String SUBSCRIPTION_CANCELLED = "subscription.cancelled";
 
-  public static final Set<String> ALL = Set.of(CUSTOMER_REGISTERED, ORDER_PLACED, REFUND_REQUESTED);
+  public static final Set<String> ALL =
+      Set.of(CUSTOMER_REGISTERED, ORDER_PLACED, REFUND_REQUESTED, SUBSCRIPTION_CANCELLED);
 
   private EventTypes() {}
 }

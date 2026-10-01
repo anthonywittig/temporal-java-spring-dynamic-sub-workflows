@@ -25,7 +25,8 @@ final class ReplayTestSupport {
           "order.placed-success",
           "order.placed-compensated",
           "refund.requested-auto-approved",
-          "refund.requested-signal-approved");
+          "refund.requested-signal-approved",
+          "subscription.cancelled-v1");
 
   private ReplayTestSupport() {}
 
