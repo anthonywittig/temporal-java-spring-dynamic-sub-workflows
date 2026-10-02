@@ -1,0 +1,1 @@
+{"type":"customer.registered","id":"c-1001","payload":{"customerId":"c-1001","email":"ada@example.com","name":"Ada Lovelace"}}
